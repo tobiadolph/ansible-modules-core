@@ -659,7 +659,7 @@ def switch_version(git_path, module, dest, remote, version, verify_commit):
         (rc, out, err) = module.run_command("%s checkout --force %s" % (git_path, branch), cwd=dest)
         if rc != 0:
             module.fail_json(msg="Failed to checkout branch %s" % branch)
-        cmd = "%s reset --hard %s" % (git_path, remote)
+        cmd = "%s reset --hard %s" % (git_path, version)
     (rc, out1, err1) = module.run_command(cmd, cwd=dest)
     if rc != 0:
         if version != 'HEAD':
